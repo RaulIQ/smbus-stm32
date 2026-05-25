@@ -1,0 +1,25 @@
+[package]
+name = "smbus-stm32"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "smbus-stm32"
+test = false
+bench = false
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+defmt = "0.3"
+defmt-rtt = "0.4"
+embedded-hal = "1.0"
+nb = "1"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+stm32f1xx-hal = { version = "0.11", features = ["stm32f103", "medium"] }
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
+opt-level = "s"
